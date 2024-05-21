@@ -1,0 +1,61 @@
+{
+  "name": "lastrev-next-starter",
+  "private": true,
+  "scripts": {
+    "build-storybook": "storybook build",
+    "build": "pnpm env:init && STAGE=build dotenv -- turbo build",
+    "chromatic": "npx chromatic",
+    "clean": "turbo clean",
+    "dev": "pnpm env:init && dotenv -- turbo sync:cms dev gql:dev --continue --concurrency 15",
+    "env:check": "node ./scripts/env-scripts/envSanityCheck.js",
+    "env:init": "./scripts/env-checks/main_workflow.sh",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "gql:dev": "pnpm env:init && dotenv -- turbo sync:cms gql:dev --continue --concurrency 15",
+    "gql:logs": "pnpm env:init && dotenv -- turbo gql:logs",
+    "lint": "turbo lint",
+    "lr-dev": "envkey core stop && envkey core start && es --dot-env -f > .env && pnpm i && pnpm dev",
+    "lr-build": "envkey core stop && envkey core start && es --dot-env -f > .env && pnpm i && pnpm build",
+    "start": "pnpm env:init && dotenv -- turbo start",
+    "storybook": "storybook dev -p 6006",
+    "sync:cms": "pnpm env:init && dotenv -- turbo sync:cms",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-react": "^7.24.1",
+    "@netlify/plugin-nextjs": "4.41.3",
+    "@storybook/addon-essentials": "^7.6.3",
+    "@storybook/addon-interactions": "^7.6.3",
+    "@storybook/addon-links": "^7.6.3",
+    "@storybook/addon-onboarding": "^1.0.9",
+    "@storybook/blocks": "^7.6.3",
+    "@storybook/nextjs": "^7.6.3",
+    "@storybook/react-webpack5": "^7.6.3",
+    "@storybook/react": "^7.6.3",
+    "@storybook/testing-library": "^0.2.2",
+    "chromatic": "^11.3.1",
+    "cypress": "^13.8.1",
+    "dotenv-cli": "^7.4.2",
+    "next": "^14.2.3",
+    "prettier": "^2.8.8",
+    "prop-types": "^15.8.1",
+    "react-dom": "^18.3.1",
+    "react": "^18.3.1",
+    "storybook": "^7.6.3",
+    "turbo": "^1.13.3"
+  },
+  "packageManager": "pnpm@8.6.10",
+  "version": "",
+  "readme": "ERROR: No README data found!",
+  "_id": "lastrev-next-starter@",
+  "pnpm": {
+    "patchedDependencies": {
+      "@mui/system@5.14.19": "patches/@mui__system@5.14.19.patch"
+    }
+  },
+  "overrides": {
+    "dependency-name": {
+      "graphql": "^16.8.1"
+    }
+  }
+}
